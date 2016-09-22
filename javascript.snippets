@@ -4,14 +4,105 @@ snippet #! "shebang"
 #!/usr/bin/env node
 endsnippet
 
-snippet ; "new module"
+snippet ;t "new test module"
+/**
+ * Tests for $1
+ */
+;(function () {
+  /* global describe, it */
+  'use strict'
+
+  /* imports */
+  var expect = require('chai').expect
+  var $1 = require('../$1')
+
+  describe('$1', function () {
+    it('should accept proper inputs', function (done) {
+      var $1Options = {
+        $3: $4
+    }
+
+      $1($1Options, function (error, result) {
+        expect(error).not.to.be.ok
+        expect(result).to.be.ok
+        done()
+      })
+    })
+
+    it('should not accept improper inputs', function (done) {
+      var $1Options = {}
+
+      $1($1Options, function (error, result) {
+        expect(error).to.be.ok
+        expect(result).not.to.be.ok
+        done()
+      })
+    })
+
+    it('should $5', function (done) {
+      var $1Options = {
+        $3: $4
+      }
+
+      $1($1Options, function (error, result) {
+        expect(error).to.be.ok
+        expect(result)not.to.be.ok
+
+        $0
+        done()
+      })
+    })
+  })
+})()
+
+endsnippet
+
+snippet ;m "new module"
+/**
+ * ${1:some-module} ${2:a description}
+ *
+ * @module $1
+ */
 ;(function () {
   'use strict'
 
   /* imports */
 
   /* exports */
+  module.exports = ${1/-([a-z])/\u$1/g}
 
+  /**
+   * ${1/-([a-z])/\u$1/g} $2
+   *
+   * @function ${1/-([a-z])/\u$1/g}
+   * @alias $1
+   *
+   * @param {Object} options all function parameters
+   * @param {Function} callback handle results
+   */
+  function ${1/-([a-z])/\u$1/g} (options, callback) {
+    $0
+  }
 })()
 
 endsnippet
+
+snippet r "require"
+var ${2/-([a-z])/\u$1/g} = require('${1:./}${2:module}')
+endsnippet
+
+snippet f "new function"
+/**
+ * $1 $2
+ *
+ * @function $1
+ *
+ * @param {Object} options all function parameters
+ * @param {Function} callback handle results
+ */
+function $1 (options, callback) {
+  $0
+}
+
+endsnippet
+
