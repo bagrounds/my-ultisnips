@@ -14,15 +14,15 @@ snippet ;t "new test module"
 
   /* imports */
   var expect = require('chai').expect
-  var $1 = require('../$1')
+  var ${1/-([a-z])/\u$1/g} = require('../$1')
 
   describe('$1', function () {
     it('should accept proper inputs', function (done) {
-      var $1Options = {
+      var ${1/-([a-z])/\u$1/g}Options = {
         $3: $4
     }
 
-      $1($1Options, function (error, result) {
+      ${1/-([a-z])/\u$1/g}(${1/-([a-z])/\u$1/g}Options, function (error, result) {
         expect(error).not.to.be.ok
         expect(result).to.be.ok
         done()
@@ -30,9 +30,9 @@ snippet ;t "new test module"
     })
 
     it('should not accept improper inputs', function (done) {
-      var $1Options = {}
+      var ${1/-([a-z])/\u$1/g}Options = {}
 
-      $1($1Options, function (error, result) {
+      ${1/-([a-z])/\u$1/g}(${1/-([a-z])/\u$1/g}Options, function (error, result) {
         expect(error).to.be.ok
         expect(result).not.to.be.ok
         done()
@@ -40,11 +40,11 @@ snippet ;t "new test module"
     })
 
     it('should $5', function (done) {
-      var $1Options = {
+      var ${1/-([a-z])/\u$1/g}Options = {
         $3: $4
       }
 
-      $1($1Options, function (error, result) {
+      ${1/-([a-z])/\u$1/g}(${1/-([a-z])/\u$1/g}Options, function (error, result) {
         expect(error).to.be.ok
         expect(result)not.to.be.ok
 
